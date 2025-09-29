@@ -1,15 +1,57 @@
 {
   "name": "interactive-debug-console-overlay",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A framework-agnostic, zero-dependency debugging tool for web applications with interactive console overlay",
   "type": "module",
+  "main": "./dist/interactive-debug-console-overlay.umd.js",
+  "module": "./dist/interactive-debug-console-overlay.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/interactive-debug-console-overlay.js",
+      "require": "./dist/interactive-debug-console-overlay.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "debug",
+    "console",
+    "overlay",
+    "webview",
+    "typescript",
+    "vanilla-js",
+    "framework-agnostic",
+    "zero-dependency"
+  ],
+  "author": "Kiwook <rldnrl@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rldnrl/interactive-debug-console-overlay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rldnrl/interactive-debug-console-overlay/issues"
+  },
+  "homepage": "https://github.com/rldnrl/interactive-debug-console-overlay#readme",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build:lib": "vite build --mode lib",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "prepublishOnly": "yarn build:lib"
   },
   "devDependencies": {
+    "@types/node": "^24.5.2",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
+    "terser": "^5.44.0",
     "typescript": "~5.8.3",
-    "vite": "^7.1.7"
+    "vite": "^7.1.7",
+    "vite-plugin-dts": "^4.5.4"
   }
 }
